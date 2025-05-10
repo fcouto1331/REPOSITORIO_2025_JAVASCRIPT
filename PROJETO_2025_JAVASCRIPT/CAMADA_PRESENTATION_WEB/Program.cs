@@ -1,7 +1,13 @@
+using CAMADA_PRESENTATION_WEB.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//builder.Services.AddSingleton<DapperContext>();
+builder.Services.DapperExtension();
+builder.Services.ClienteExtension();
 
 var app = builder.Build();
 
