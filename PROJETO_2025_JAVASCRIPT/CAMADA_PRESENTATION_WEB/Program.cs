@@ -1,4 +1,6 @@
 using CAMADA_PRESENTATION_WEB.Extensions;
+using CAMADA_PRESENTATION_WEB.Interfaces;
+using CAMADA_PRESENTATION_WEB.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 //builder.Services.AddSingleton<DapperContext>();
+//builder.Services.AddTransient<IClienteRepository, ClienteRepository>();
 builder.Services.DapperExtension();
 builder.Services.ClienteExtension();
 

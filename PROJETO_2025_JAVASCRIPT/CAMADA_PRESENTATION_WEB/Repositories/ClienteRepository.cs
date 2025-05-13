@@ -1,6 +1,6 @@
 ﻿using CAMADA_PRESENTATION_WEB.Dapper;
 using CAMADA_PRESENTATION_WEB.Entities;
-using CAMADA_PRESENTATION_WEB.Interfaces;
+using CAMADA_PRESENTATION_WEB.Interfaces.Repositories;
 using Dapper;
 
 namespace CAMADA_PRESENTATION_WEB.Repositories
