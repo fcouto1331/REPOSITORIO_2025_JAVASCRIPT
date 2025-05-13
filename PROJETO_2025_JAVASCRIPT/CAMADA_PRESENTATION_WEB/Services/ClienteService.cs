@@ -1,6 +1,7 @@
 ﻿using CAMADA_PRESENTATION_WEB.Entities;
-using CAMADA_PRESENTATION_WEB.Interfaces.Repositories;
-using CAMADA_PRESENTATION_WEB.Interfaces.Services;
+using CAMADA_PRESENTATION_WEB.Interfaces.IRepositories;
+using CAMADA_PRESENTATION_WEB.Interfaces.IServices;
+
 
 namespace CAMADA_PRESENTATION_WEB.Services
 {

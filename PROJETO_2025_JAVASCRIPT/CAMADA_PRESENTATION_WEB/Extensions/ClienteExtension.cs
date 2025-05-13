@@ -1,5 +1,5 @@
-﻿using CAMADA_PRESENTATION_WEB.Interfaces.Repositories;
-using CAMADA_PRESENTATION_WEB.Interfaces.Services;
+﻿using CAMADA_PRESENTATION_WEB.Interfaces.IRepositories;
+using CAMADA_PRESENTATION_WEB.Interfaces.IServices;
 using CAMADA_PRESENTATION_WEB.Repositories;
 using CAMADA_PRESENTATION_WEB.Services;
 

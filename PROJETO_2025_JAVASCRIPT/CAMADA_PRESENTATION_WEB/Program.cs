@@ -1,6 +1,4 @@
 using CAMADA_PRESENTATION_WEB.Extensions;
-using CAMADA_PRESENTATION_WEB.Interfaces;
-using CAMADA_PRESENTATION_WEB.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

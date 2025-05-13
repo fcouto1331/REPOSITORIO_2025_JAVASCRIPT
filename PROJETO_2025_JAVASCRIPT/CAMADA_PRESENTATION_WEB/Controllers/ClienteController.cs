@@ -1,4 +1,4 @@
-﻿using CAMADA_PRESENTATION_WEB.Interfaces.Services;
+﻿using CAMADA_PRESENTATION_WEB.Interfaces.IServices;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CAMADA_PRESENTATION_WEB.Controllers
