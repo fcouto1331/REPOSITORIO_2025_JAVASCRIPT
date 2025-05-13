@@ -1,6 +1,6 @@
 ﻿using CAMADA_PRESENTATION_WEB.Entities;
 
-namespace CAMADA_PRESENTATION_WEB.Interfaces.Services
+namespace CAMADA_PRESENTATION_WEB.Interfaces.IServices
 {
     public interface IClienteService
     {
