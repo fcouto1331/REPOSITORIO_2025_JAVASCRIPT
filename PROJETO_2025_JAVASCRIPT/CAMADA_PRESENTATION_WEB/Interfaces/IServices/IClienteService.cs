@@ -5,5 +5,6 @@ namespace CAMADA_PRESENTATION_WEB.Interfaces.IServices
     public interface IClienteService
     {
         List<Cliente> GetAll();
+        Task<List<Cliente>> GetAllAsync();
     }
 }

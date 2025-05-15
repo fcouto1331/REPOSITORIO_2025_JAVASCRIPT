@@ -2,6 +2,7 @@
 using CAMADA_PRESENTATION_WEB.Entities;
 using CAMADA_PRESENTATION_WEB.Interfaces.IRepositories;
 using Dapper;
+using System.Text;
 
 namespace CAMADA_PRESENTATION_WEB.Repositories
 {
@@ -18,8 +19,26 @@ namespace CAMADA_PRESENTATION_WEB.Repositories
         {
             using (var db = _context.CreateConnection())
             {
-                var sql = "select ClienteId, Nome from Cliente";
-                return [.. db.Query<Cliente>(sql)];
+                StringBuilder query = new StringBuilder();
+                query.Append("select ");
+                query.Append("ClienteId, ");
+                query.Append("Nome ");
+                query.Append("from Cliente ");                
+                return [.. db.Query<Cliente>(query.ToString())]; //return db.Query<Cliente>(query.ToString()).ToList();
+            }
+        }
+
+        public async Task<List<Cliente>> GetAllAsync()
+        {
+            using (var db = _context.CreateConnection())
+            {
+                StringBuilder query = new StringBuilder();
+                query.Append("select ");
+                query.Append("ClienteId, ");
+                query.Append("Nome ");
+                query.Append("from Cliente ");
+                var ret = await db.QueryAsync<Cliente>(query.ToString());
+                return [.. ret]; //return ret.ToList();
             }
         }
     }

@@ -5,5 +5,6 @@ namespace CAMADA_PRESENTATION_WEB.Interfaces.IRepositories
     public interface IClienteRepository
     {
         List<Cliente> GetAll();
+        Task<List<Cliente>> GetAllAsync();
     }
 }
