@@ -1,42 +1,103 @@
-﻿async function carregarClientes() {
-    const response = await fetch('/Cliente/Todos', { method: 'POST' });
-    if (!response.ok && response.status != 200) {
-        alert('Erro na requisição');
-        return;
-    }
-    const data = await response.json();
+﻿//async function carregarClientes() {
+//    const response = await fetch('/Cliente/Todos', { method: 'POST' });
+//    if (!response.ok && response.status != 200) {
+//        alert('Erro na requisição');
+//        return;
+//    }
+//    const data = await response.json();
 
-    console.log(response)
-    console.log(data)
+//    // Opcional: mostra o retorno no console do navegador
+//    console.log(response)
+//    console.log(data)
 
-    const registros = document.getElementById('registros');
-    registros.innerHTML = ''; 
+//    const registros = document.getElementById('registros');
+//    registros.innerHTML = ''; 
 
-    // Verifica se a resposta foi bem-sucedida
-    if (data && data.ret) {
-        const clientes = data.cliente;
+//    // Verifica se a resposta foi bem-sucedida
+//    if (data && data.ret) {
+//        const clientes = data.cliente;
 
-        if (clientes && clientes.length > 0) {
+//        if (clientes && clientes.length > 0) {
 
-            let tabela = '<table class="table table-bordered"><caption>Clientes</caption>';
-            tabela += '<thead class="thead-dark"><tr><th class="w-25">ID</th><th>Nome</th></tr></thead><tbody>';
+//            let tabela = '<table class="table table-bordered"><caption>Clientes</caption>';
+//            tabela += '<thead class="thead-dark"><tr><th class="w-25">ID</th><th>Nome</th></tr></thead><tbody>';
 
-            // Adiciona as linhas dos clientes
-            clientes.forEach(cliente => {
-                tabela += `<tr>
-                    <td>${cliente.clienteId}</td>
-                    <td>${cliente.nome ?? ''}</td>
-                </tr>`;
-            });
+//            // Adiciona as linhas dos clientes
+//            clientes.forEach(cliente => {
+//                tabela += `<tr>
+//                    <td>${cliente.clienteId}</td>
+//                    <td>${cliente.nome ?? ''}</td>
+//                </tr>`;
+//            });
 
-            tabela += '</tbody></table>';
-            registros.innerHTML = tabela;
-        } else {
-            registros.innerHTML = '<div>Nenhum cliente encontrado.</div>';
+//            tabela += '</tbody></table>';
+//            registros.innerHTML = tabela;
+//        } else {
+//            registros.innerHTML = '<div>Nenhum cliente encontrado.</div>';
+//        }
+//    } else {
+//        registros.innerHTML = `<div class="text-danger">${data.output?.msg ?? 'Erro ao buscar clientes.'}</div>`;
+//    }
+//}
+
+const carregarClientes = async () => {
+    fetch('/Cliente/Todos', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
         }
-    } else {
-        registros.innerHTML = `<div class="text-danger">${data.output?.msg ?? 'Erro ao buscar clientes.'}</div>`;
-    }
+    })
+        .then(response => response.json())
+        .then(data => {
+            const registros = document.getElementById('registros');
+            registros.innerHTML = '';
+
+            if (data && data.ret) {
+                const clientes = data.cliente;
+                let tabela = '';
+                if (clientes && clientes.length > 0) {
+                    tabela += '<table class="table table-bordered"><caption>Clientes</caption>';
+                    tabela += '<thead class="thead-dark"><tr><th class="w-25">ID</th><th>Nome</th></tr></thead><tbody>';
+
+                    clientes.forEach(cliente => {
+                        tabela += `<tr>
+                            <td>${cliente.clienteId}</td>
+                            <td>${cliente.nome ?? ''}</td>
+                        </tr>`;
+                    });
+
+                    tabela += '</tbody></table>';
+                    registros.innerHTML = tabela;
+                } else {
+                    registros.innerHTML = '<div>Nenhum cliente encontrado.</div>';
+                }
+            } else {
+                registros.innerHTML = `<div class="text-danger">${data.output?.msg ?? 'Erro ao buscar clientes.'}</div>`;
+            }
+            console.log(data)
+        })
+        .catch(error => {
+            alert(`${error}`)
+        });
+}
+
+const abrirModalClienteNovo = () => {
+    let modal = document.getElementById('modalClienteNovo');
+    fetch('/Cliente/Novo', {
+        method: 'GET'
+    })
+        .then(response => {
+            if (!response.ok) throw new Error('Erro ao carregar o formulário');
+            return response.text();
+        })
+        .then(data => {
+            modal.innerHTML = '';
+            modal.innerHTML = data;
+            $('#modalClienteNovo').modal('show');
+        })
+        .catch(error => {
+            alert(`${error}`)
+        })
 }
 
 // Opcional: chama automaticamente ao carregar a página

@@ -1,6 +1,8 @@
-﻿using CAMADA_PRESENTATION_WEB.Interfaces.IServices;
+﻿using CAMADA_PRESENTATION_WEB.Entities;
+using CAMADA_PRESENTATION_WEB.Interfaces.IServices;
 using CAMADA_PRESENTATION_WEB.Utilities;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace CAMADA_PRESENTATION_WEB.Controllers
 {
@@ -27,8 +29,14 @@ namespace CAMADA_PRESENTATION_WEB.Controllers
             }
             catch (Exception)
             {
-                return Json(new { ret = false, msg = Mensagens.excecao });
+                return Json(new { ret = false, msg = Mensagens.erro });
             }
+        }
+
+        [HttpGet]
+        public IActionResult Novo()
+        {
+            return PartialView("_Novo");
         }
     }
 }
