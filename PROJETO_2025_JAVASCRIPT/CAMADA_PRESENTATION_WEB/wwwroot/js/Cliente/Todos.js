@@ -81,24 +81,5 @@ const carregarClientes = async () => {
         });
 }
 
-const abrirModalClienteNovo = () => {
-    let modal = document.getElementById('modalClienteNovo');
-    fetch('/Cliente/Novo', {
-        method: 'GET'
-    })
-        .then(response => {
-            if (!response.ok) throw new Error('Erro ao carregar o formulário');
-            return response.text();
-        })
-        .then(data => {
-            modal.innerHTML = '';
-            modal.innerHTML = data;
-            $('#modalClienteNovo').modal('show');
-        })
-        .catch(error => {
-            alert(`${error}`)
-        })
-}
-
 // Opcional: chama automaticamente ao carregar a página
 document.addEventListener('DOMContentLoaded', carregarClientes);

@@ -1,8 +1,6 @@
-﻿using CAMADA_PRESENTATION_WEB.Entities;
-using CAMADA_PRESENTATION_WEB.Interfaces.IServices;
+﻿using CAMADA_PRESENTATION_WEB.Interfaces.IServices;
 using CAMADA_PRESENTATION_WEB.Utilities;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
 
 namespace CAMADA_PRESENTATION_WEB.Controllers
 {
@@ -33,10 +31,10 @@ namespace CAMADA_PRESENTATION_WEB.Controllers
             }
         }
 
-        [HttpGet]
-        public IActionResult Novo()
-        {
-            return PartialView("_Novo");
-        }
+        //[HttpGet]
+        //public IActionResult Novo()
+        //{
+        //    return PartialView("_Novo");
+        //}
     }
 }
