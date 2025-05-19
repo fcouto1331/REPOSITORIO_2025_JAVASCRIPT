@@ -12,14 +12,14 @@ namespace CAMADA_PRESENTATION_WEB.Services
             _clienteRepository = clienteRepository;
         }
 
-        public List<Cliente> GetAll()
+        public List<Cliente> Todos()
         {
-            return _clienteRepository.GetAll();
+            return _clienteRepository.Todos();
         }
 
-        public async Task<List<Cliente>> GetAllAsync()
+        public async Task<List<Cliente>> TodosAsync()
         {
-            return await _clienteRepository.GetAllAsync();
+            return await _clienteRepository.TodosAsync();
         }
     }
 }

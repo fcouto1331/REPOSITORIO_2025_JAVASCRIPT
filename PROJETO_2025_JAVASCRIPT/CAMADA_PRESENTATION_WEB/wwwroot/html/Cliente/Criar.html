@@ -1,0 +1,30 @@
+﻿<!--<div class="modal-dialog modal-fullscreen">-->
+<div class="modal-dialog" style="--bs-modal-width: 95% !important">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Cliente</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="card">
+                <div class="card-header">Novo</div>
+                <div class="card-body">
+                    <form id="frmNovoCliente" method="post">
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Nome</label>
+                                <input type="text" class="form-control" id="Nome" value="" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" onclick="criarCliente()">Salvar</button>
+        </div>
+    </div>
+</div>

@@ -15,7 +15,7 @@ namespace CAMADA_PRESENTATION_WEB.Repositories
             _context = context;
         }
 
-        public List<Cliente> GetAll()
+        public List<Cliente> Todos()
         {
             using (var db = _context.CreateConnection())
             {
@@ -23,12 +23,12 @@ namespace CAMADA_PRESENTATION_WEB.Repositories
                 query.Append("select ");
                 query.Append("ClienteId, ");
                 query.Append("Nome ");
-                query.Append("from Cliente ");                
+                query.Append("from Cliente ");
                 return [.. db.Query<Cliente>(query.ToString())]; //return db.Query<Cliente>(query.ToString()).ToList();
             }
         }
 
-        public async Task<List<Cliente>> GetAllAsync()
+        public async Task<List<Cliente>> TodosAsync()
         {
             using (var db = _context.CreateConnection())
             {
@@ -41,5 +41,45 @@ namespace CAMADA_PRESENTATION_WEB.Repositories
                 return [.. ret]; //return ret.ToList();
             }
         }
+
+        public Cliente Criar(Cliente cliente)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Cliente> CriarAsync(Cliente cliente)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Cliente PegarPorId(Guid clienteId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Cliente> PegarPorIdAsync(Guid clienteId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Cliente Editar(Cliente cliente, Guid clienteId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Cliente> EditarAsync(Cliente cliente, Guid clienteId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Deletar(Guid clienteId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeletarAsync(Guid clienteId)
+        {
+            throw new NotImplementedException();
+        }     
     }
 }

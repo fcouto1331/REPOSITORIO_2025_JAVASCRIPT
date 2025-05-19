@@ -23,18 +23,12 @@ namespace CAMADA_PRESENTATION_WEB.Controllers
         {
             try
             {
-                return Json(new { ret = true, msg = Mensagens.sucesso, cliente = await _clienteService.GetAllAsync() });
+                return Json(new { ret = true, msg = Mensagens.sucesso, cliente = await _clienteService.TodosAsync() });
             }
             catch (Exception)
             {
                 return Json(new { ret = false, msg = Mensagens.erro });
             }
         }
-
-        //[HttpGet]
-        //public IActionResult Novo()
-        //{
-        //    return PartialView("_Novo");
-        //}
     }
 }
